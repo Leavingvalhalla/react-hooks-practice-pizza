@@ -1,19 +1,32 @@
-import React from "react";
+import React from 'react';
 
-function PizzaForm() {
+function PizzaForm({
+  topping,
+  setTopping,
+  size,
+  setSize,
+  vegetarian,
+  setVegetarian,
+}) {
   return (
     <form onSubmit={null /*handle that submit*/}>
       <div className="form-row">
         <div className="col-5">
           <input
+            onChange={(e) => setTopping(e.target.value)}
             className="form-control"
             type="text"
             name="topping"
             placeholder="Pizza Topping"
+            value={topping}
           />
         </div>
         <div className="col">
-          <select className="form-control" name="size">
+          <select
+            className="form-control"
+            name="size"
+            onChange={(e) => setSize(e.target.value)}
+          >
             <option value="Small">Small</option>
             <option value="Medium">Medium</option>
             <option value="Large">Large</option>
